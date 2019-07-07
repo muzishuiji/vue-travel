@@ -9,7 +9,7 @@
                   class="search-content border-bottom"
                   v-for="item in list"
                   :key="item.id"
-                  @click="clickHandler(item.name)">
+                  @click="handleCityClick(item.name)">
                   {{item.name}}
                 </li>
                 <li class="search-content border-bottom"
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { clearTimeout, setTimeout } from 'timers'
 import BScroll from '@better-scroll/core'
 export default {
@@ -61,14 +62,19 @@ export default {
     }
   },
   mounted () {
-    this.scroll = new BScroll(this.$refs.search)
+    const options = {
+      scrollY: true,
+      scrollX: false,
+      mouseWheel: true,
+      click: true,
+      taps: true
+    }
+    this.scroll = new BScroll(this.$refs.search, options)
   },
   methods: {
-    clickHandler (city) {
-      console.log(city)
-      alert('123')
-      this.$store.commit('changeCity', city)
-      this.list = []
+    ...mapMutations(['changeCity']),
+    handleCityClick (city) {
+      this.changeCity(city)
       this.$router.push('/')
     }
   }

@@ -5,8 +5,7 @@
         <city-list
         :cities="cities"
         :hotCities="hotCities"
-        :letter="letter"
-        @changeCity="changeCity"></city-list>
+        :letter="letter"></city-list>
         <city-alphabet @change="changeLetter"></city-alphabet>
     </div>
 </template>
