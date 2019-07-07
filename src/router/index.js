@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/home/Home'
-import City from '@/views/city/City'
 Vue.use(Router)
 
 export default new Router({
@@ -24,8 +23,18 @@ export default new Router({
       meta: {
         title: '城市'
       },
-      component: City
+      component: resolve => require(['@/views/city/City'], resolve)
+    },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      meta: {
+        title: '详情'
+      },
+      component: resolve => require(['@/views/detail/Detail'], resolve)
     }
-
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

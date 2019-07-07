@@ -6,12 +6,14 @@
         <div class="search-list" ref="search" v-show="keyword">
             <ul class="content">
                 <li
-                class="search-content border-bottom"
-                v-for='item in list'
-                :key='item.id'
-                @click='clickHandler'>{{item.name}}</li>
+                  class="search-content border-bottom"
+                  v-for="item in list"
+                  :key="item.id"
+                  @click="clickHandler(item.name)">
+                  {{item.name}}
+                </li>
                 <li class="search-content border-bottom"
-                v-show="keyword && list.length === 0 ">
+                v-show="keyword && list.length === 0">
                     没有找到匹配数据
                 </li>
             </ul>
@@ -62,8 +64,12 @@ export default {
     this.scroll = new BScroll(this.$refs.search)
   },
   methods: {
-    clickHandler (el) {
-      this.keyword = el.target.innerText
+    clickHandler (city) {
+      console.log(city)
+      alert('123')
+      this.$store.commit('changeCity', city)
+      this.list = []
+      this.$router.push('/')
     }
   }
 }

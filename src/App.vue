@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <router-view />
+    <!--尽可能的缓存组件,主要是用name指向对应的组件-->
+    <keep-alive exclude="Detail">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
