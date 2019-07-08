@@ -11,9 +11,10 @@
     </div>
     <common-fade>
       <common-gallary
-            v-show="showImgGallary"
-            :imgs="gallaryImgs"
-            @close="handlerGallaryClose"></common-gallary>
+              v-slot:default
+              v-show="showImgGallary"
+              :imgs="gallaryImgs"
+              @close="handlerGallaryClose"></common-gallary>
     </common-fade>
   </div>
 </template>
