@@ -1,29 +1,23 @@
 # vue-travel
 
-## Project setup
+vue.js仿去哪儿旅行网
+
+**开发内容**
+
+首页
+
+城市选择页
+
+推荐列表的详情页
+
+...
+
+## 安装
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 运行
 ```
-yarn run serve
+yarn serve
 ```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
